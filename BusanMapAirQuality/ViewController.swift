@@ -44,7 +44,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.title = "부산 미세먼지 지도"
         
         let a = BusanData(coordinate: CLLocationCoordinate2D(latitude:35.0999630, longitude: 35.0999630), title: "광복동", subtitle: "")
-        
         let b = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.0829920, longitude: 128.9668750), title: "장림동", subtitle: "PM10 66ug/m2 보통")
         let c = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1460850, longitude: 128.9838270), title: "학장동", subtitle: "PM10 66ug/m2 좋음")
         let d = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2158660, longitude: 129.0197570), title: "덕천동", subtitle: "PM10 66ug/m2 보통")
