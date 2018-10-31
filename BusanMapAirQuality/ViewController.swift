@@ -12,6 +12,7 @@ import MapKit
 class ViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var myMapView: MKMapView!
+    ////////////////
     let addrs:[String:[String]] = [
         "광복동" : ["중구 광복로 55번길 10", "35.0999630", "129.0304170", "광복동 주민센터", "도시대기", "상업지역"],
         "장림동" : ["사하구 장림로 161번길 2", "35.0829920", "128.9668750", "사하여성회관", "도시대기","공업지역"],
@@ -35,30 +36,37 @@ class ViewController: UIViewController, MKMapViewDelegate {
         "온천동" : ["동래구 중앙대로 동래역", "35.2056140", "129.0785020", "동래지하철 앞", "도로변", "상업지역"],
         "초량동" : ["동구 초량동 윤흥신장군 동상앞", "35.11194650", "129.0354560", "윤흥신장군 동상 앞", "도로변", "상업지역"]
     ]
+    /////////////////
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "부산 미세먼지 지도"
         
-        let a = BusanData(coordinate: CLLocationCoordinate2D(latitude:35.0999630, longitude: 35.0999630), title: "광복동", subTitle: "")
+        let a = BusanData(coordinate: CLLocationCoordinate2D(latitude:35.0999630, longitude: 35.0999630), title: "광복동", subtitle: "")
         
-        //print(addrs["광복동"]![1])
+        let b = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.0829920, longitude: 128.9668750), title: "장림동", subtitle: "PM10 66ug/m2 보통")
+        let c = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1460850, longitude: 128.9838270), title: "학장동", subtitle: "PM10 66ug/m2 좋음")
+        let d = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2158660, longitude: 129.0197570), title: "덕천동", subtitle: "PM10 66ug/m2 보통")
+        let e = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1841140, longitude: 129.0786090), title: " 연산동", subtitle: "PM10 66ug/m2 보통")
+        let f = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1303210, longitude: 129.0876850), title: "대연동", subtitle: "PM10 66ug/m2 좋음")
+        let g = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2752570, longitude: 129.0898810), title: "청룡동", subtitle: "PM10 66ug/m2 보통")
+        let h = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1530480, longitude: 129.0635640), title: "전포동", subtitle: "PM10 66ug/m2 좋음")
+        let i = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.0597260, longitude: 129.0798400), title: "태종대", subtitle: "PM10 66ug/m2 보통")
+        let j = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2460560, longitude: 129.2118280), title: "기장읍", subtitle: "PM10 66ug/m2 좋음")
+        let k = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2114600, longitude: 128.9547110), title: "대저동", subtitle: "PM10 66ug/m2 보통")
+        let l = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2298390, longitude:  129.0927140), title: "부곡동", subtitle: "PM10 66ug/m2 좋음")
+        let m = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1527040, longitude:  129.1078090), title: "광안동", subtitle: "구 보건환경연구원 3층")
+        let n = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2047550, longitude:  129.1043270), title: "명장동", subtitle: "명장동 주민센터 옥상")
+        let o = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.0953270, longitude:  128.8556680), title: "녹산동", subtitle: "(주)삼성전기부산사업장 옥상")
+        let p = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.3255580, longitude:  129.1801400), title: "용수리", subtitle: "정관면 주민센터 2층 옥상")
+        let q = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1708900, longitude:  129.1742250), title: "좌동", subtitle: "좌1동 주민센터 옥상")
+        let r = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1293350, longitude:  129.0454230), title: "수정동", subtitle: "동구청사 옥상")
+        let s = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1173230, longitude:  129.0156410), title: "대신동", subtitle: "부산국민체육센터")
+        let t = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2056140, longitude:  129.0785020), title: "온천동", subtitle: "동래지하철 앞")
+        let u = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.11194650, longitude:  129.0354560), title: "초량동", subtitle: "윤흥신장군 동상 앞")
         
-        
-        let b = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.0829920, longitude: 128.9668750), title: "장림동", subTitle: "")
-        let c = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1460850, longitude: 128.9838270), title: "학장동", subTitle: "")
-        let d = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2158660, longitude: 129.0197570), title: "덕천동", subTitle: "")
-        let e = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1841140, longitude: 129.0786090), title: " 연산동", subTitle: "")
-        let f = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1303210, longitude: 129.0876850), title: "대연동", subTitle: "")
-        let g = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2752570, longitude: 129.0898810), title: "청룡동", subTitle: "")
-        let h = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.1530480, longitude: 129.0635640), title: "전포동", subTitle: "")
-        let i = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.0597260, longitude: 129.0798400), title: "태종대", subTitle: "")
-        let j = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2460560, longitude: 129.2118280), title: "기장읍", subTitle: "")
-        let k = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2114600, longitude: 128.9547110), title: "대저동", subTitle: "")
-        let l = BusanData(coordinate: CLLocationCoordinate2D(latitude: 35.2298390, longitude:  129.0927140), title: "부곡동", subTitle: "")
-        
-        myMapView.addAnnotations([a,b,c,d,e,f,g,h,i,j,k,l])
+        myMapView.addAnnotations([a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u])
         myMapView.delegate = self
         
         zoomToRegion()
@@ -83,14 +91,14 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         // as?는 다운 캐스팅(형변환) 하려는 타입의 옵셔널 값을 리턴, 다운 캐스트가 가능하지 않으면 nil 반환, 형변환이 성공하리란 보장이 없으면 as? 사용
         // as!는 강제 형변환(force unwrap), 다운 캐스트가 가능하지 않으면 runtime error 발생, 형변환이 확실히 성공 가능하면 as! 사용
-        var annotationView = myMapView.dequeueReusableAnnotationView(withIdentifier: "identifier") as? MKPinAnnotationView
+        var annotationView = myMapView.dequeueReusableAnnotationView(withIdentifier: "identifier") //as? MKPinAnnotationView
         
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
             let btn = UIButton(type: .detailDisclosure)
             annotationView?.rightCalloutAccessoryView = btn
-            annotationView?.animatesDrop = true
+            //annotationView?.animatesDrop = true
         } else {
             annotationView?.annotation = annotation
         }
@@ -102,12 +110,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let viewAnno = view.annotation
         let stationName = viewAnno?.title
-        //let stationInfo = viewAnno?.subtitle
+        let stationInfo = viewAnno?.subtitle
         
 //        print(stationName)
 //        print(stationInfo)
         
-        let ac = UIAlertController(title: stationName!, message: "test", preferredStyle: .alert)
+        let ac = UIAlertController(title: stationName!, message: stationInfo!, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(ac, animated: true, completion: nil)
         
